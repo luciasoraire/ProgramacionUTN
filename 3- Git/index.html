@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+	<html lang="en">
+	  <head>
+	    <meta charset="UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <meta name="author" content="Lucia Soraire" />
+	    <meta name="description" content="Git" />
+	    <meta name="keywords" content="Comandos" />
+	    <link rel="stylesheet" href="css/style.css" />
+	    <title>Document</title>
+	  </head>
+	  <body>
+	    <header>
+	        <nav><h1>Programación III - Power Point no2</h1></nav>
+	    </header>
+	    <main>
+	      <section>
+	        <h1>Software Versionado</h1>
+	        <article>
+	          <p>
+	            Se llama control de versiones a la gestión de los diversos cambios
+	            que se realizan sobre los elementos de algún producto o una
+	            configuración del mismo (historial). Estos sistemas facilitan la
+	            administración de las distintas versiones de cada producto
+	            desarrollado, así como las posibles especializaciones realizadas
+	            (por ejemplo, para algún cliente específico).
+	          </p>
+	          <p>Ejemplos de este tipo de herramientas son entre otros:</p>
+	
+
+	          <ul>
+	            <li>CVS</li>
+	            <li>Subversion</li>
+	            <li>SourceSafe</li>
+	            <li>ClearCase</li>
+	            <li>Darcs</li>
+	            <li>Bazaar</li>
+	            <li>Plastic SCM</li>
+	            <li>Git</li>
+	            <li>Mercurial</li>
+	            <li>Perforce</li>
+	          </ul>
+	        </article>
+	        <article>
+	          <h2>Terminología</h2>
+	          <h3>Repositorio</h3>
+	          <p>
+	            El repositorio es el lugar en el que se almacenan los datos
+	            actualizados e históricos de cambios.
+	          </p>
+	          <h3>Etiqueta ("Tag")</h3>
+	          <p>
+	            Los tags permiten identificar de forma fácil revisiones importantes
+	            en el proyecto. Por ejemplo se suelen usar tags para identificar el
+	            contenido de las versiones publicadas del proyecto.
+	          </p>
+	          <h3>Rama ("Branch")</h3>
+	          <p>
+	            Un conjunto de archivos puede ser ramificado o bifurcado en un punto
+	            en el tiempo de manera que, a partir de ese momento, dos copias de
+	            esos archivos se pueden desarrollar a velocidades diferentes o en
+	            formas diferentes de forma independiente el uno del otro.
+	          </p>
+	          <h3>Hash</h3>
+	          <p>
+	            Todos, los objetos que se guardan en la base de datos de GIT tienen
+	            un identificador único. Este identificador se genera a partir de la
+	            información del mismo objeto que se va a almacenar mediante un
+	            método de criptografía llamado SHA-1 que por definición se dice que
+	            es una función hash. De ahí el nombre
+	          </p>
+	          <h3>Desplegar ("Checkout")</h3>
+	          <p>
+	            Es crear una copia de trabajo local desde el repositorio. Un usuario
+	            puede especificar una revisión en concreto u obtener la última. El
+	            término 'checkout' también se puede utilizar como un sustantivo para
+	            describir la copia de trabajo.
+	          </p>
+	          <h3>Confirmar ("Commit")</h3>
+	          <p>
+	            Confirmar es escribir o mezclar los cambios realizados en la copia
+	            de trabajo del repositorio. Los términos 'commit' y 'checkin'
+	            también se pueden utilizar como sustantivos para describir la nueva
+	            revisión que se crea como resultado de confirmar
+	          </p>
+	          <h3>Fusionar, integrar, mezclar ("Merge")</h3>
+	          <p>
+	            Una fusión o integración es una operación en la que se aplican dos
+	            tipos de cambios en un archivo o conjunto de archivos.
+	          </p>
+	        </article>
+	      </section>
+	      <section>
+	        <h1 class="introduccion">Introducción a Git</h1>
+	        <p>
+	          Git es un sistema de control de versiones distribuido que se
+	          diferencia del resto en el modo en que modela sus datos. La mayoría
+	          delos demás sistemas almacenan la información como una lista de
+	          cambios en los archivos, mientras que Git modela sus datos más como un
+	          conjunto de instantáneas de un mini sistema de archivos.
+	        </p>
+	        <article>
+	          <h2>Los tres estados</h2>
+	          <p>
+	            Git tiene tres estados principales en los que se pueden encontrar
+	            tus archivos : confirmado (committed), modificado (modified), y
+	            preparado (staged).
+	          </p>
+	          <ul>
+	            <li>
+	              Confirmado significa que los datos están almacenados de manera
+	              segura en tu base de datos local.
+	            </li>
+	            <li>
+	              Modificado significa que has modificado el archivo pero todavía no
+	              lo has confirmado a tu base de datos.
+	            </li>
+	            <li>
+	              Preparado significa que has marcado un archivo modificado en su
+	              versión actual para que vaya en tu próxima confirmación.
+	            </li>
+	          </ul>
+	          <h2>Instalación</h2>
+	          <p>
+	            La instalación del cliente Git no supone mayor problema. Desde la
+	            web oficial de Git (https://git-scm.com/) puedes obtener las
+	            instrucciones para instalarlo.
+	          </p>
+	          <ol>
+	            <li>Abrir GitBash</li>
+	            <li>
+	              Establece el nombre de usuario en Git:
+	              <code>$ git config --global user.name "Lucía Soraire"</code>
+	            </li>
+	            <li>
+	              Confirma que has establecido correctamente el nombre de usuario:
+	              <code>$ git config --global user.name</code>
+	            </li>
+	            <li>
+	              Establece el email en Git:
+	              <code
+	                >$ git config --global user.email "luciasoraire@gmail.com"</code
+	              >
+	            </li>
+	            <li>
+	              Confirma que has establecido correctamente el email:
+	              <code>$ git config --global user.email</code>
+	            </li>
+	          </ol>
+	          <h2>Uso Básico de Git</h2>
+	          <h3>Crear repositorio</h3>
+	          <p>
+	            Para crear un nuevo repositorio se usa: <br /><code
+	              >$ git init</code
+	            >
+	          </p>
+	          <h3>Añadir la aplicación</h3>
+	          <p>
+	            Vamos a almacenar el archivo que hemos creado en el repositorio para
+	            poder trabajar. <br /><code>$ git add index.html</code><br /><code
+	              >$ git commit -m "Creación del proyecto"</code
+	            >
+	          </p>
+	          <h3>Comprobar el estado del repositorio</h3>
+	          <p>
+	            Para ver el estado en el que se encuentran los archivos de nuestro
+	            repositorio usamos: <br /><code>$ git status</code>
+	          </p>
+	          <h3>Confirmar los cambios</h3>
+	          <p>
+	            Con la orden git commit confirmamos los cambios definitivamente, lo
+	            que hace que se guarden permanentemente en nuestro repositorio.
+	            <br /><code>$ git commit -m "Parametrización del programa"</code>
+	          </p>
+	          <h3>Trabajando con el historial</h3>
+	          <h4>Observando los cambios</h4>
+	          <p>
+	            Con la orden git log podemos ver todos los cambios que hemos hecho:
+	            <br /><code>$ git log</code>
+	          </p>
+	          <h4>Abreviatura</h4>
+	          <p>
+	            También es posible ver versiones abreviadas o limitadas, dependiendo
+	            de los parámetros. <br /><code>$ git log --oneline</code>
+	          </p>
+	          <h4>Recuperando versiones anteriores</h4>
+	          <p>
+	            Cada cambio es etiquetado por un hash, para poder regresar a ese
+	            momento del estado del proyecto se usa la orden git checkout.
+	            <br /><code>$ git checkout e19d2c1</code>
+	          </p>
+	        </article>
+            <h3>Creando un nuevo branch</h3>
+            <p>
+              Para crear un nuevo branch se usa: <br /><code
+                >$ git checkout -b new_branch_name</code
+              >
+            </p>
+            <h3>Ver todas las ramas</h3>
+            <p>
+              Para listar las ramas existentes utiliza:<br /><code
+                >$ git branch</code
+              >
+            </p>
+            <h3>Eliminar una rama</h3>
+            <p>
+              Si has fusionado varias ramas de trabajo y, por lo tanto, ya no te hace falta una rama en particular, puedes eliminarla facilmente. Para ello, introduce el comando:<br /><code
+                >$ git branch -d branch_name</code
+              > <br> El único requisito para eliminar una rama es encontrarse en otra distinta en ese momento. Por lo tanto, has de cambiar al repositorio principal antes de ejecutar el comando.
+            </p>
+            <h3>Commit y add (juntos)</h3>
+            <p>
+              Toma todos los cambios escritos en el index, crea un nuevo objeto de confirmación que apunta a él y establece la rama para que apunte a esa nueva confirmación.<br /><code
+                >$ git commit -a -m "comentario"</code
+              >
+            </p>
+            <h3>Git RM</h3>
+            <p>
+              Elimina archivos de tu index y de tu directorio de ensayo para que no se rastreen.<br /><code
+                >$ git rm filename</code
+              >
+            </p>
+            <h3>Visualizar cambios</h3>
+            <p>
+             Para ver los cambios que se han realizado en el código usamos la orden:<br /><code
+                >$ git diff</code
+              >. <br>La orden sin especificar nada más, mostrará los cambios que no han sido añadidos aún, es decir, todos los cambios que se han hecho antes de usar la orden git add. Despues se puede indicar un parámetro y dará los cambios entre la versión indicada y el estado actual. O para comparar dos versiones entre sí, se indica la más antigua y la mas nueva. <br><code>$ git diff v1-beta v1</code>
+            </p>
+            <h3>Tag</h3>
+            <p>
+             Marca un commit específico con un identificador simple y legible que nunca se mueve.<br /><code
+                >$ git tag -a v1.0 -m "This is a version 1.0 tag"</code
+              >
+            </p>
+            <h3>Borrar etiquetas</h3>
+            <p>
+             Para eliminar una etiqueta del directorio de trabajo local, ejecuta el comando:<br /><code
+                >$ git tag -d Test</code
+              >
+            </p>
+            <h3>Deshaciendo cambios en el stage</h3>
+            <p>
+             <code
+                >$ git reset HEAD hola.php</code
+              >
+            </p>
+            <h3>Deshaciendo el último commit</h3>
+            <p>Si quieres deshacer el último commit generado, puedes hacerlo con el siguiente comando:
+             <code
+                >$ git reset --soft HEAD~1</code
+              ><br>. Este comando cancela el commit registrado por última vez en el HEAD. Los archivos que contiene se restablecen como "cambios planificados para el próximo commit" en el estado del proyecto. Si lo que quieres es eliminar por completo los datos introducidos, ejecuta el siguiente comando en lugar del anterior: <br>
+            <code>$ git reset --hard HEAD~1</code></p>
+            <h3>Git Stash</h3>
+            <p>El comando git stash almacena temporalmente (o guarda en un stash) los cambios que hayas efectuado en el código en el que estás trabajando para que puedas trabajar en otra cosa y, más tarde, regresar y volver a aplicar los cambios más tarde. Guardar los cambios en stashes resulta práctico si tienes que cambiar rápidamente de contexto y ponerte con otra cosa, pero estás en medio de un cambio en el código y no lo tienes todo listo para confirmar los cambios. <br>
+             <code
+                >$ git stash</code
+              >
+            </p>
+            <h3>Cómo volver a aplicar los cambios de un stash</h3>
+            <p>
+             <code
+                >$ git stash pop</code
+              >
+            </p>
+            <h3>.gitignore</h3>
+            <p>El archivo -gitignore es un archivo de texto que le dice a Git qué archivos o carpetas ignorar en un proyecto. Un archivo local .gitignore generalmente se coloca en el directorio raíz de un proyecto. También puedes crear un archivo global .gitignore y cualquier entrada en ese archivo en ese archivo se ignorará en todos tus repositorios de Git. Para crear un archivo .gitignore local, crea un archivo de texto y asignale el nombre ".gitignore" (recuerda incluir el . al principio). Luego edita este archivo según sea necesario. Cada nueva línea debe incluir un archivo o carpeta adicional que quieras que Git lo ignore.
+             
+            </p>
+            <h3>Git merge</h3>
+            <p>Fusiona una o más ramas con otra rama activa y crea automáticamente un nuevo commit si no hay conflictos. <br><code>git merge newbranchversion</code>
+             
+            </p>
+            <h3>Clonar de github un proyecto</h3>
+            <p>Crea una copia de repositorio GIT de una fuente externa. También añade la ubicación original como remota de modo que puedas traerlo de nuevo y lanzarlo si tienes permisos. <br><code>git clone git@github.com:user/test.git</code>
+             
+            </p>
+            <h3>Cómo cargar tu proyecto en GitHub</h3>
+            <p>Cargar tu proyecto en GitHub sirve para evitar que tu proyecto se corrompa o se pierda en el almacenamiento local. También te permite acceder al repositorio de GitHub libremente desde cualquier lugar y cualquier ordenador (no necesariamente tu ordenador personal). Para cargar tu proyecto al repositorio de GitHubm tendrás que añadir el repositorio remoto a GitHub que creaste al principio. Para hacer esto usarás el comando: <br><code>git remote add origin (nombre del repositorio)</code>
+             
+            </p>
+            <h3>Git Pull</h3>
+            <p>Obtiene los archivos del repositorio remoto y los combina con el local. Este comando es una combinacion del git fetch y del git merge lo cual significa que cuando usemos el git pull recogeremos actualizaciones del repositorio remoto (git fetch) e inmediatamente aplicamos estos últimos cambios en local (git merge). Esta operación puede general conflictos que tengamos que resolver manualmente.<br><code>git pull origin</code>
+             
+            </p>
+            <h3>Git Push</h3>
+            <p>Envía todos los objetos modificados localmente al repositorio remoto. <br><code>git push origin master</code>. De todas formas, si tu rama ha sido creada recientemente, puede que tengas que cargar y subir tu rama con el siguiente comando: <code>git push --set-upstream nombreremoto nombredeturama</code> o <code>git push -u origin nombredeturama</code>
+             
+            </p>
+	      </section>
+	    </main>
+	    <footer>
+            <p>Soraire, Lucía - Universidad Tecnológica Nacional</p>
+            <p class="derechosreservados">© derechos reservados</p>
+	    </footer>
+	  </body>
+	</html>
