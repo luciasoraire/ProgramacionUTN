@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+}
+
+
+section{
+    margin-left: 2em;
+    margin-right: 2em;
+}
+h1{
+    margin-bottom: 10px;
+}
+h2{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h3{
+    margin-bottom: 10px;
+}
+h4{
+    margin-bottom: 10px;
+}
+p{
+    margin-bottom: 10px;
+}
+
+
+.introduccion{
+    margin-top: 40px;
+}
+
+
+footer p{
+    text-align: center;
+}
+
+
+footer{
+    background-color: grey;
+    padding: 2%;
+    color: white;
+    margin-top: 30px;
+}
+
+
+.derechosreservados{
+    letter-spacing: 4px;
+}
+
+
+nav{
+    background-color: grey;
+    padding: 2%;
+    color: white;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
